@@ -1,0 +1,13 @@
+---
+- hosts: local
+  become: true
+  connection: local
+  user: root
+  tasks:
+
+    - name: ensure docker is at the latest version
+      apt: name=docker state=latest
+    - name: start docker
+      service:
+          name: docker
+          state: started
